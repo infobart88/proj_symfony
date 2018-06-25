@@ -1,0 +1,35 @@
+<?php
+// src/AppBundle/Entity/Book_has_category.php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="book_has_category")
+ */
+class Book_has_category
+{
+	
+	/**
+	 * @ORM\Column(type="integer")
+	 * @ORM\Id
+	 * @ORM\GeneratedValue(strategy="AUTO")
+	 */
+	protected $id_bhc;
+	
+	/**
+	 *	@ORM\OneToOne(targetEntity="Book")
+	 *	@ORM\JoinColumn(name="book_id", referencedColumnName="id_book")
+	 */
+	protected $book;
+	
+	/**
+	 *	@ORM\ManyToOne(targetEntity="Category")
+	 *	@ORM\JoinColumn(name="category_id", referencedColumnName="id_category")
+	 */
+	protected $category;
+
+
+}

@@ -1,0 +1,85 @@
+{# app/Resources/views/bookstwig/books.html.twig #}
+
+{% extends 'basebootstr.html.twig' %}
+
+{% block title %}List books!{% endblock %}
+
+{% block stylebb %}
+<div class="form-inline mr-sm-2">
+{{ form_start(forme, {'attr': {'class': 'form-inline my-2 mr-sm-0'}}) }}{{ form_widget(forme.select) }}{{ form_widget(forme.title) }}{{ form_end(forme) }}
+</div>
+{% endblock %}
+
+{% block body %}
+
+<br /><br /><br /><br /><br />
+<table class="table table-bordered">
+	<thead>
+		 <tr> 
+			 <th>#</th> 
+			 <th>Title</th>
+			 <th>Author</th>
+			 <th>Price</th>
+			 <th>Category</th>
+			 <th>Add category</th>
+		 </tr>
+	 </thead> 
+	 <tbody> 
+	 {% for bhc in books %}
+		 <tr> 
+			 <th scope="row">{{ bhc.getBook().id_book }} </th>
+			 <td>{{bhc.getBook().title }}</td>
+			 <td>{{ bhc.getBook().author }}</td> 
+			 <td>{{ bhc.getBook().price }}</td> 
+			 <td>{{ bhc.getCategory().name_cat }} </td>
+			 <td>
+			<div class="form-inline mr-sm-2">
+				  <select id="id_catgory" name="catgory" class="select2 form-control mr-sm-2">
+	 				  {% for cat in categories %}
+						<option value="{{ cat.id_category }}">{{ cat.name_cat }}</option>
+	 				  {% endfor %}
+				  </select>
+			<a href="" class="btn btn-success mr-sm-2">Add</a>
+			</div>
+			 </td> 
+		 </tr>
+	 {% endfor%}
+	 </tbody> 
+ </table>
+
+<div class="navigation">
+    {{ knp_pagination_render(books) }}
+</div>
+
+{% if title == "" %}
+<a class="btn btn-default" href="{{ path('b_formularz') }}">Add book</a>
+{% else %}
+<a class="btn btn-default" href="{{ path('b_lista') }}">Back to list</a>
+{% endif %}
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

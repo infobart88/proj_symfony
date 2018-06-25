@@ -1,0 +1,15 @@
+1) Nale¿y za³adowaæ bazê danych z pliku symfony.sql (znajduje siê w plikach projektu)
+
+2) Parametry po³¹czenia z baz¹ danych z pliku parameters.yml s¹ nastêpuj¹ce (baza danych phpMyAdmin):
+database_host: 127.0.0.1
+
+database_port: null
+
+database_name: symfony
+
+database_user: root
+
+database_password: null
+
+3) Projekt uruchamia siê z linku:
+http://localhost/{katalog_projektu}/web/app_dev.php/books

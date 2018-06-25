@@ -1,0 +1,35 @@
+{# app/Resources/views/bookstwig/form.html.twig #}
+
+{% extends 'basebootstr.html.twig' %}
+
+{% block title %}Formularz!{% endblock %}
+
+{% block body %}
+<div>
+<br /><br /><br />
+<center><p><h3>Add <span style="color:blue">book</span></h3></p></center>
+<br />
+{{ form_start(form) }}
+		{{ form_errors(form) }}
+		<div class="form-inline mr-sm-2 row align-items-center justify-content-center">
+		{{ form_widget(form.title) }}
+		</div>
+		<div class="form-inline mr-sm-2 row align-items-center justify-content-center">
+		{{ form_widget(form.author) }}
+		</div>
+		<div class="form-inline mr-sm-2 row align-items-center justify-content-center">
+		{{ form_widget(form.price) }}
+		</div>
+		<div class="form-inline mr-sm-2 row align-items-center justify-content-center">
+		{{ form_widget(form.save) }}
+		</div>
+{{ form_end(form) }}
+</div>
+
+{% for flash_message in app.session.flashbag.get('notice') %}
+		<div class="alert alert-success">{{ flash_message}}</div>
+{% endfor %}
+
+<a class="btn btn-default" href="{{ path('b_lista') }}">Back to list</a>
+{% endblock %}
+

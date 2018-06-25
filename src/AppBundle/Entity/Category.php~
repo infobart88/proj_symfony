@@ -1,0 +1,43 @@
+<?php
+// src/AppBundle/Entity/Category.php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="category")
+ */
+class Category
+{
+	
+	/**
+	 * @ORM\Column(type="integer")
+	 * @ORM\Id
+	 * @ORM\GeneratedValue(strategy="AUTO")
+	 */
+	protected $id_category;
+	
+	/**
+	 * @ORM\Column(type="string", length=100)
+	 */
+	protected $name_cat;
+	
+	public function getId_category()
+	{
+		return $this->id_category;
+	}
+	
+	public function getName_cat()
+	{
+		return $this->name_cat;
+	}
+	
+	public function setName_cat($name_cat)
+	{
+		$this->name_cat = $name_cat;
+	}
+}
+
+?>
